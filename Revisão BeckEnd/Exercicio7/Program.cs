@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Atividade07;
+
+{
+    Veiculo v1 = new Carro();
+    Veiculo v2 = new Bicicleta();
+
+    v1.Mover();
+    v2.Mover();
+}

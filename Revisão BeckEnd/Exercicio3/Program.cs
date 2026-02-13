@@ -1,6 +1,3 @@
-﻿Pessoa Raw = new Pessoa();
+﻿Pessoa Raw = new Pessoa("Rawany", 16);
 
-Raw.Nome = "Rawany";
-Raw.Idade = 16;
-
-Raw.Exibirdados();
+pessoa1.ExibirDados();

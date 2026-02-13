@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+{
+    Pessoa p = new Pessoa("Gustavo");
+
+    p.Apresentar();
+    p.Apresentar("Costa");
+}

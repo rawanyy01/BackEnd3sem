@@ -5,19 +5,42 @@ using System.Threading.Tasks;
 
 namespace Exercicio2
 {
+    
     public class Pessoa
     {
-
         public string Nome;
-        public int Idade;
+        private int idade;
+        public int Idade
+        {
+            get{return idade;}
+            set
+            {
+                if (value > 0)
+                {
+                    idade = value;
+                }
+
+                else
+                {
+                    Console.WriteLine($"Idade Invalida");
+                }
+            }
+        }
+
+        public Pessoa(string n, int i )
+        {
+            Nome = n;
+            Idade = i;
+        }
 
         public void ExibirDados()
         {
-            Console.WriteLine("Nome" + Nome);
-            Console.WriteLine("Idade" + Idade);
+            Console.WriteLine($"Nome: " + Nome);
 
+            if(Idade > 0)
+            {
+                Console.WriteLine($"Idade: " + Idade);        
+            }
         }
     }
-
-
 }
