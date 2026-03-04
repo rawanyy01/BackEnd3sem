@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Filmes.WebAPI",
+    "\\Filmes.WebAPI\\Controllers",
+    "\\Filmes.WebAPI\\Interfaces",
+    "\\Filmes.WebAPI\\Models",
+    "\\Filmes.WebAPI\\Repositories"
+  ],
+  "SelectedNode": "\\Filmes.WebAPI\\Controllers\\FilmeController.cs",
+  "PreviewInSolutionExplorer": false
+}

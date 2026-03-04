@@ -89,7 +89,21 @@ public class FilmeRepository : IFilmeRepository
 
     public void Deletar(Guid Id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Filme filmeBuscado = _context.Filmes.Find(Id.ToString())!;
+
+            if (filmeBuscado != null)
+            {
+                _context.Filmes.Remove(filmeBuscado);
+            }
+            _context.SaveChanges();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
     public List<Filme> Listar()
