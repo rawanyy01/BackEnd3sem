@@ -10,6 +10,7 @@ namespace EventPlus.WebAPI.Models;
 [Table("Evento")]
 public partial class Evento
 {
+    public static object Titulo { get; internal set; }
     [Key]
     public Guid IdEvento { get; set; }
 

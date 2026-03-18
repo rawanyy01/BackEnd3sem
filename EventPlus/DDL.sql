@@ -1,6 +1,8 @@
 CREATE DATABASE EventPlus_Moura;
 GO
 
+SELECT * FROM Usuario;
+
 USE EventPlus_Moura;
 GO
 

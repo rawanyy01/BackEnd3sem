@@ -74,7 +74,7 @@ public class TipoUsuarioRepository : ITipoUsuarioRepository
 
     public List<TipoUsuario> Listar()
     {
-        return _context.TipoUsuarios.OrderBy(tipoUsuario => tipoUsuario).ToList();
+        return _context.TipoUsuarios.OrderBy(TipoUsuario => TipoUsuario.Titulo).ToList();
     }
 
       }

@@ -4,6 +4,6 @@ namespace EventPlus.WebAPI.DTO;
 
 public class TipoEventoDTO
 {
-    [Required(ErrorMessage = "O t;itulo do tipo de evento é obrigatorio!")]
+    [Required(ErrorMessage = "O titulo do tipo de evento é obrigatorio!")]
      public string? Titulo { get; set; }
 }
