@@ -16,6 +16,91 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "List",
+    "RelativePath": "api/ComentarioEvento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "Put",
+    "RelativePath": "api/ComentarioEvento",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comentario",
+        "Type": "EventPlus.WebAPI.Models.ComentarioEvento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "Delete",
+    "RelativePath": "api/ComentarioEvento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "ListarSomenteExibe",
+    "RelativePath": "api/ComentarioEvento/ListarSomenteExibe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "BuscarPorIdUsuario",
+    "RelativePath": "api/ComentarioEvento/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Idusuario",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Idevento",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EventPlus.WebAPI.Controllers.EventoController",
     "Method": "Get",
     "RelativePath": "api/Evento",

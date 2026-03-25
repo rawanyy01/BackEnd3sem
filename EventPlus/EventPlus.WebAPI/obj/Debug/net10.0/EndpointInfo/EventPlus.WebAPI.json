@@ -44,6 +44,130 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "ComentarioEvento"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ComentarioEvento"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioEvento"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioEvento"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComentarioEvento"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ComentarioEvento/ListarSomenteExibe": {
+      "get": {
+        "tags": [
+          "ComentarioEvento"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ComentarioEvento/Usuario": {
+      "get": {
+        "tags": [
+          "ComentarioEvento"
+        ],
+        "parameters": [
+          {
+            "name": "Idusuario",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idevento",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ComentarioEvento/{id}": {
+      "delete": {
+        "tags": [
+          "ComentarioEvento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Evento": {
@@ -786,6 +910,43 @@
   },
   "components": {
     "schemas": {
+      "ComentarioEvento": {
+        "type": "object",
+        "properties": {
+          "idComentarioEvento": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dataComentarioEvento": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "exibe": {
+            "type": "boolean"
+          },
+          "idEvento": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "idUsuario": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "idEventoNavigation": {
+            "$ref": "#/components/schemas/Evento"
+          },
+          "idUsuarioNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
       "ComentarioEventoDTO": {
         "type": "object",
         "properties": {
@@ -964,6 +1125,22 @@
         },
         "additionalProperties": false
       },
+      "TipoUsuario": {
+        "type": "object",
+        "properties": {
+          "idTipoUsuario": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "titulo": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "TipoUsuarioDTO": {
         "required": [
           "titulo"
@@ -973,6 +1150,42 @@
           "titulo": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoUsuario": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "idTipoUsuarioNavigation": {
+            "$ref": "#/components/schemas/TipoUsuario"
           }
         },
         "additionalProperties": false

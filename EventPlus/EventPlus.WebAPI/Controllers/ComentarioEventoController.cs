@@ -74,7 +74,7 @@ public class ComentarioEventoController : ControllerBase
         }
     }
 
-    [HttpGet]
+    [HttpGet("ListarSomenteExibe")]
     public IActionResult ListarSomenteExibe(Guid Id)
     {
         try
@@ -88,7 +88,7 @@ public class ComentarioEventoController : ControllerBase
         }
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("Usuario")]
     public IActionResult BuscarPorIdUsuario(Guid Idusuario, Guid Idevento)
     {
         try
