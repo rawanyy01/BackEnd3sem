@@ -56,9 +56,15 @@ GO
 CREATE TABLE ComentarioEvento(
 	IdComentarioEvento UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
 	DataComentarioEvento  DATETIME NOT NULL,
-	Descricao  NVARCHAR NOT NULL,
-	Exibe VARCHAR NOT NULL,
+	Descricao  TEXT NOT NULL,
+	Exibe BIT NOT NULL,
 	IdEvento UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Evento (IdEvento),
 	IdUsuario UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Usuario (IdUsuario)
 );
 GO
+
+SELECT * FROM Evento
+
+SELECT * FROM Usuario
+
+SELECT * FROM ComentarioEvento

@@ -15,12 +15,10 @@ public partial class ComentarioEvento
     [Column(TypeName = "datetime")]
     public DateTime DataComentarioEvento { get; set; }
 
-    [StringLength(1)]
+    [Column(TypeName = "text")]
     public string Descricao { get; set; } = null!;
 
-    [StringLength(1)]
-    [Unicode(false)]
-    public string Exibe { get; set; } = null!;
+    public bool Exibe { get; set; }
 
     public Guid? IdEvento { get; set; }
 

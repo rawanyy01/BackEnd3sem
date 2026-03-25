@@ -26,15 +26,15 @@ public partial class Usuario
 
     public Guid? IdTipoUsuario { get; set; }
 
-    [JsonIgnore]
     [InverseProperty("IdUsuarioNavigation")]
+    [JsonIgnore]
     public virtual ICollection<ComentarioEvento> ComentarioEventos { get; set; } = new List<ComentarioEvento>();
 
     [ForeignKey("IdTipoUsuario")]
     [InverseProperty("Usuarios")]
     public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
 
-    [JsonIgnore]
     [InverseProperty("IdUsuarioNavigation")]
+    [JsonIgnore]
     public virtual ICollection<Presenca> Presencas { get; set; } = new List<Presenca>();
 }

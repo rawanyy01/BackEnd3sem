@@ -15,7 +15,7 @@ public class PresencaRepository : IPresencaRepository
     }
 
 
-    public void Atualizar(Guid id, Presenca presenca)
+    public void Atualizar(Guid id)
     {
         var presencaBuscada = _context.Presencas.Find(id);
 

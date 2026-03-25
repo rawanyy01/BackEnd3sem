@@ -163,3 +163,4 @@ C:\Users\58040489881\Desktop\BackEnd3sem\EventPlus\EventPlus.WebAPI\obj\Debug\ne
 C:\Users\58040489881\Desktop\BackEnd3sem\EventPlus\EventPlus.WebAPI\obj\Debug\net10.0\EventPlus.WebAPI.pdb
 C:\Users\58040489881\Desktop\BackEnd3sem\EventPlus\EventPlus.WebAPI\obj\Debug\net10.0\EventPlus.WebAPI.genruntimeconfig.cache
 C:\Users\58040489881\Desktop\BackEnd3sem\EventPlus\EventPlus.WebAPI\obj\Debug\net10.0\ref\EventPlus.WebAPI.dll
+C:\Users\58040489881\Desktop\BackEnd3sem\EventPlus\EventPlus.WebAPI\bin\Debug\net10.0\Azure.AI.ContentSafety.dll

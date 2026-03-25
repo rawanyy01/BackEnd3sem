@@ -16,7 +16,7 @@ public partial class TipoEvento
     [StringLength(100)]
     public string Titulo { get; set; } = null!;
 
-    [JsonIgnore]
     [InverseProperty("IdTipoEventoNavigation")]
+    [JsonIgnore]
     public virtual ICollection<Evento> Eventos { get; set; } = new List<Evento>();
 }

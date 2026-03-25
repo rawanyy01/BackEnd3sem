@@ -24,7 +24,7 @@ public partial class Instituicao
     [StringLength(14)]
     public string Cnpj { get; set; } = null!;
 
-    [JsonIgnore]
     [InverseProperty("IdInstituicaoNavigation")]
+    [JsonIgnore]
     public virtual ICollection<Evento> Eventos { get; set; } = new List<Evento>();
 }

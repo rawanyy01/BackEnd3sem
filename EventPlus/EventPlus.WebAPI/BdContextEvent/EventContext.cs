@@ -29,7 +29,6 @@ public partial class EventContext : DbContext
     public virtual DbSet<TipoUsuario> TipoUsuarios { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
-    public object TipoUsuario { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -39,13 +38,13 @@ public partial class EventContext : DbContext
     {
         modelBuilder.Entity<ComentarioEvento>(entity =>
         {
-            entity.HasKey(e => e.IdComentarioEvento).HasName("PK__Comentar__4305A1F1C12745CF");
+            entity.HasKey(e => e.IdComentarioEvento).HasName("PK__Comentar__4305A1F1BA3F5712");
 
             entity.Property(e => e.IdComentarioEvento).HasDefaultValueSql("(newid())");
 
-            entity.HasOne(d => d.IdEventoNavigation).WithMany(p => p.ComentarioEventos).HasConstraintName("FK__Comentari__IdEve__76969D2E");
+            entity.HasOne(d => d.IdEventoNavigation).WithMany(p => p.ComentarioEventos).HasConstraintName("FK__Comentari__IdEve__03F0984C");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ComentarioEventos).HasConstraintName("FK__Comentari__IdUsu__778AC167");
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ComentarioEventos).HasConstraintName("FK__Comentari__IdUsu__04E4BC85");
         });
 
         modelBuilder.Entity<Evento>(entity =>
