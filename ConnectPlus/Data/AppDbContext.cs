@@ -28,11 +28,12 @@ public partial class AppDbContext : DbContext
     {
         modelBuilder.Entity<Contato>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Contato__3214EC0720DAD7D8");
+            entity.HasKey(e => e.IdContato).HasName("PK__Contato__2AC4F064C1DAFAE0");
 
             entity.ToTable("Contato");
 
-            entity.Property(e => e.FormaContato)
+            entity.Property(e => e.IdContato).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.DadosContato)
                 .HasMaxLength(150)
                 .IsUnicode(false);
             entity.Property(e => e.Imagem)
@@ -42,18 +43,18 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(150)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.TipoContato).WithMany(p => p.Contatos)
-                .HasForeignKey(d => d.TipoContatoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Contato_TipoContato");
+            entity.HasOne(d => d.IdTipoContatoNavigation).WithMany(p => p.Contatos)
+                .HasForeignKey(d => d.IdTipoContato)
+                .HasConstraintName("FK__Contato__IdTipoC__6383C8BA");
         });
 
         modelBuilder.Entity<TipoContato>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TipoCont__3214EC07FE36FC1D");
+            entity.HasKey(e => e.IdTipoContato).HasName("PK__TipoCont__8D18FEBD771D6B25");
 
             entity.ToTable("TipoContato");
 
+            entity.Property(e => e.IdTipoContato).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(100)
                 .IsUnicode(false);

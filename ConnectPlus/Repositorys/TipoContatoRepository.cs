@@ -55,8 +55,5 @@ public class TipoContatoRepository : ITipoContatoRepository
         }
     }
 
-    List<Contato> ITipoContatoRepository.Listar()
-    {
-        throw new NotImplementedException();
-    }
+  
 }

@@ -42,9 +42,9 @@ namespace ConnectPlus.Repository
             {
 
                 contatoExistente.Nome = contato.Nome;
-                contatoExistente.FormaContato = contato.FormaContato;
+                contatoExistente.DadosContato = contato.DadosContato;
                 contatoExistente.Imagem = contato.Imagem;
-                contatoExistente.IdTipoContato = contato.IdTipoContato;
+               // contatoExistente.IdTipoContato = contato.IdTipoContato;
 
                 _context.Contatos.Update(contatoExistente);
                 _context.SaveChanges();

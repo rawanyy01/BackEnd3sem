@@ -8,16 +8,12 @@ public class ContatoDTO
     public string? Nome { get; set; }
 
     [Required(ErrorMessage = "A Imagem é obrigatoria!")]
-    public string? Imagem { get; set; }
-
-    [Required(ErrorMessage = "O Identificador é obrigatorio!")]
-    public string? Identificador { get; set; }
+    public IFormFile Imagem { get; set; }
 
     [Required(ErrorMessage = "A Forma de Contato é obrigatoria!")]
-    public string? FormaContato { get; set; }
+    public string? DadosContato { get; set; }
 
-    [Required(ErrorMessage = "O Tipo de contato associado é obrigatorio!")]
-    public string? TipoContadoAssociado { get; set; }
+    public Guid IdTipoContato { get; set; }
 
 
 }

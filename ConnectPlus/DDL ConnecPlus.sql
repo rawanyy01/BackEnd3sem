@@ -3,21 +3,22 @@ USE ConnectPlus;
 
 
 CREATE TABLE TipoContato (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    Titulo VARCHAR(100) NOT NULL
+ IdTipoContato UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
+ Titulo VARCHAR(100) NOT NULL
 );
 
 GO
+SELECT * FROM TipoContato;
 
 CREATE TABLE Contato (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
+    IdContato UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
     Nome VARCHAR(150) NOT NULL,
     DadosContato VARCHAR(150) NOT NULL,
     Imagem VARCHAR(255),
-    TipoContatoId INT NOT NULL,
 
-    FOREIGN KEY (TipoContatoId)
-    REFERENCES TipoContato(Id)
+    IdTipoContato UNIQUEIDENTIFIER FOREIGN KEY REFERENCES TipoContato(IdTipoContato)
  );
 
  GO
+
+ DROP TABLE TipoContato;

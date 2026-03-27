@@ -6,7 +6,7 @@ public interface ITipoContatoRepository
 {
     void Cadastrar(TipoContato tipoContato);
     void Deletar(Guid id);
-    List<Contato> Listar();
+    List<TipoContato> Listar();
     TipoContato BuscarPorId(Guid id);
     void Atualizar(Guid id, TipoContato tipoContato);
 }

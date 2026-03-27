@@ -5,7 +5,7 @@
     "description": "Aplicação para gerenciamento de eventos",
     "termsOfService": "https://example.com/terms",
     "contact": {
-      "name": "Gustavo Costa",
+      "name": "Rawany",
       "url": "https://www.linkedin.com/in/marcaumdev"
     },
     "license": {
@@ -32,19 +32,44 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Contato"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Contato"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Contato"
+                "required": [
+                  "DadosContato",
+                  "Imagem",
+                  "Nome"
+                ],
+                "type": "object",
+                "properties": {
+                  "Nome": {
+                    "type": "string"
+                  },
+                  "Imagem": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "DadosContato": {
+                    "type": "string"
+                  },
+                  "IdTipoContato": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "encoding": {
+                "Nome": {
+                  "style": "form"
+                },
+                "Imagem": {
+                  "style": "form"
+                },
+                "DadosContato": {
+                  "style": "form"
+                },
+                "IdTipoContato": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -271,15 +296,15 @@
       "Contato": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
+          "idContato": {
+            "type": "string",
+            "format": "uuid"
           },
           "nome": {
             "type": "string",
             "nullable": true
           },
-          "formaContato": {
+          "dadosContato": {
             "type": "string",
             "nullable": true
           },
@@ -287,25 +312,13 @@
             "type": "string",
             "nullable": true
           },
-          "tipoContatoId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "tipoContato": {
-            "$ref": "#/components/schemas/TipoContato"
-          },
-          "idTipoContatoNavigation": {
-            "nullable": true,
-            "readOnly": true
-          },
           "idTipoContato": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "idContato": {
             "type": "string",
             "format": "uuid",
-            "readOnly": true
+            "nullable": true
+          },
+          "idTipoContatoNavigation": {
+            "$ref": "#/components/schemas/TipoContato"
           }
         },
         "additionalProperties": false
@@ -313,34 +326,26 @@
       "TipoContato": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
+          "idTipoContato": {
+            "type": "string",
+            "format": "uuid"
           },
           "titulo": {
             "type": "string",
-            "nullable": true
-          },
-          "contatos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Contato"
-            },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
       "TipoContatoDTO": {
+        "required": [
+          "titulo"
+        ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "titulo": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

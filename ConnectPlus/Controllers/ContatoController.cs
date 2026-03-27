@@ -1,4 +1,5 @@
-﻿using ConnectPlus.Interfaces;
+﻿using ConnectPlus.DTO;
+using ConnectPlus.Interfaces;
 using ConnectPlus.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,12 +10,14 @@ namespace ConnectPlus.Controllers;
 [ApiController]
 public class ContatoController : ControllerBase
 {
-    private IContatoRepository contatoRepository;
+    
     private IContatoRepository _contatoRepository;
+    private IWebHostEnvironment _env;
 
-    public ContatoController(IContatoRepository contatoRepository)
+    public ContatoController(IContatoRepository contatoRepository, IWebHostEnvironment env)
     {
         _contatoRepository = contatoRepository;
+        _env = env;
     }
 
     [HttpGet]
@@ -46,10 +49,43 @@ public class ContatoController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Cadastrar(Contato contato)
+    public IActionResult Cadastrar([FromForm]ContatoDTO contato)
     {
-        _contatoRepository.Cadastrar(contato);
-        return StatusCode(201, contato);
+        try
+        {
+            string nomeArquivo = string.Empty;
+
+            if (contato.Imagem != null)
+            {
+                var pasta = Path.Combine(_env.WebRootPath, "Imagens");
+                if(!Directory.Exists(pasta)) Directory.CreateDirectory(pasta);
+
+                nomeArquivo = Guid.NewGuid().ToString() + Path.GetExtension(contato.Imagem.FileName);
+                var caminhoCompleto = Path.Combine(pasta, nomeArquivo);
+
+                using(var stream = new FileStream(caminhoCompleto, FileMode.Create))
+                {
+                    contato.Imagem.CopyTo(stream);
+                }
+            }
+
+            var novoContato = new Contato
+            {
+                Nome = contato.Nome!,
+                DadosContato = contato.DadosContato,
+                Imagem = nomeArquivo,
+                IdTipoContato = contato.IdTipoContato
+            };
+
+            _contatoRepository.Cadastrar(novoContato);
+            return StatusCode(201,novoContato);
+
+        }
+        catch (Exception erro)
+        {
+
+            return BadRequest(erro.Message);
+        }
     }
 
     [HttpPut("{id}")]
